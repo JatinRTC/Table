@@ -6,8 +6,8 @@ import UsersTable from './component/Table';
 const App = () => {
   return (
     <Provider store={store}>
-      <div style={{ padding: '20px' }}>
-        <h2>User Management</h2>
+      <div style={{ padding: '20px', textAlign:'center' }}>
+        <h2>TABLE USERS</h2>
         <UsersTable />
       </div>
     </Provider>

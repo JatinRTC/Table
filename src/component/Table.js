@@ -6,21 +6,14 @@ import { addUser , deleteUser } from '../action/action.js';
 
 const UserTable = () => {
     const dispatch = useDispatch();
-    const users = useSelector((state => state.users))
-    console.log('users',users);
+    const users = useSelector((state) => state.users);
+    console.log("users",users);
+
     useEffect(() => {
         const fetchUsers = async () => {
           try {
             const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-            console.log('response',response);
-            const fetchedUsers = response.data.map(user => ({
-              id: user.id,
-              name: user.name
-            }));
-            console.log('fetchedUsers',fetchedUsers)
-            fetchedUsers.forEach(user => {
-              dispatch(addUser(user));
-            });
+            dispatch(addUser(response.data));
           } catch (error) {
             console.error("Error fetching users:", error);
           }
@@ -67,4 +60,4 @@ const UserTable = () => {
 
 
 export default UserTable;
-    
+ 
